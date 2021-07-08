@@ -1,7 +1,7 @@
 # BSQueue
 Temp repo for working on the BSQ project
 
-[en.subject.pdf](subject.pdf)
+[en.subject.pdf](en.subject.pdf)
 
 ![](title.png)
 
