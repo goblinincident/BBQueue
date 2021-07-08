@@ -1,4 +1,4 @@
-# BSQueue
+# BBQueue
 Temp repo for working on the BSQ project
 
 [en.subject.pdf](en.subject.pdf)
