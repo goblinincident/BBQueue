@@ -19,7 +19,7 @@
 #endif
 
 // Translates file into a null-character terminated string
-char *read_file_to_string(char *file_dir)
+char *read_file_to_string(const char *file_dir)
 {
     const int MAX_FILE_SIZE = 4096;
     const int NUMBER_OF_BYTES_TO_READ = 512;
@@ -31,7 +31,7 @@ char *read_file_to_string(char *file_dir)
     int i;
 
     // Reserve space
-    file_as_string_buffer = (char *)malloc(MAX_FILE_SIZE * sizeof(char));
+    file_as_string_buffer = (char *)malloc((MAX_FILE_SIZE + 1) * sizeof(char));
     total_bytes_read = 0;
     // Open file
     file_descriptor = open(file_dir, O_RDONLY);
@@ -40,7 +40,7 @@ char *read_file_to_string(char *file_dir)
         // Read until max file size
         while (total_bytes_read <= MAX_FILE_SIZE)
         {
-            size_of_bytes_read = read(file_descriptor, file_as_string_buffer, NUMBER_OF_BYTES_TO_READ % (MAX_FILE_SIZE - total_bytes_read));
+            size_of_bytes_read = read(file_descriptor, &file_as_string_buffer[total_bytes_read], NUMBER_OF_BYTES_TO_READ % (MAX_FILE_SIZE - total_bytes_read));
             if (size_of_bytes_read <= 0) // Read error
             {
                 size_of_bytes_read = 0;
@@ -54,10 +54,6 @@ char *read_file_to_string(char *file_dir)
     }
     else // File open error
         file_as_string_buffer[0] = '\0';
-
-    // Return buffer if no trim needed
-    if (total_bytes_read == MAX_FILE_SIZE)
-        return (file_as_string_buffer);
 
     // Trim buffer
     file_as_string = (char *)malloc((total_bytes_read + 1) * sizeof(char));
