@@ -1,5 +1,5 @@
-#include "fragments/print_map.c"
-#include "fragments/convert_argv_to_maps.c"
+#include "convert_argv_to_maps.h"
+#include "print_map.h"
 
 int main(int argc, char **argv)
 {
@@ -13,7 +13,7 @@ int main(int argc, char **argv)
     int map_i = 0;
     while (maps[map_i])
     {
-        print_map(maps[map_i]);
+        print_array_map(maps[map_i]);
         map_i++;
     }
 }

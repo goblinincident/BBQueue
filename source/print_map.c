@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void print_map(char **map)
+void print_array_map(char **map)
 {
     int x = 0;
     int y = 0;
