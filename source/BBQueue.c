@@ -14,7 +14,7 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 	{
 	}
-	***maps = convert_argv_to_maps(argc, argv);
+	maps = convert_argv_to_maps(argc, argv);
 	map_i = 0;
 	while (maps[map_i])
 	{
