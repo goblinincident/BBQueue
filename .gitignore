@@ -6,6 +6,8 @@
 .DS_Store
 .vscode
 a.out
+BBQueue
+BBQueue.dSYM
 
 # User-specific files
 *.rsuser
